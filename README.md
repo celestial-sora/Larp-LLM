@@ -1,10 +1,10 @@
-# Larp-LLM
+# Larp-LLM\n\n[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/celestial-sora/Larp-LLM/blob/main/Larp_LLM_Colab_Playground.ipynb)
 
 A Colab playground for **celestial-sora/Larp-LLM**, a LoRA adapter based on Gemma 3 12B.
 
 ## Run in Google Colab
 
-Open `Larp_LLM_Colab_Playground.ipynb` in Google Colab, select a GPU runtime, then run the cells from top to bottom.
+Click **Open in Colab** above. Colab opens a personal copy of the notebook environment; select a GPU runtime and run the cells from top to bottom.
 
 The notebook installs Unsloth and Gradio, loads `celestial-sora/Larp-LLM` from Hugging Face, and launches a temporary Gradio chat interface.
 
