@@ -1,22 +1,28 @@
-# Larp-LLM\n\n[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/celestial-sora/Larp-LLM/blob/main/Larp_LLM_Colab_Playground.ipynb)
+# Larp-LLM
 
-A Colab playground for **celestial-sora/Larp-LLM**, a LoRA adapter based on Gemma 3 12B.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/celestial-sora/Larp-LLM/blob/feat/gemma3-chat-notebook/Larp_LLM_Colab_Kaggle_Chat.ipynb)
 
-## Run in Google Colab
+A chat-first Colab/Kaggle notebook for the [celestial-sora/Larp-LLM adapter](https://huggingface.co/celestial-sora/Larp-LLM), based on `unsloth/gemma-3-12b-it-unsloth-bnb-4bit`.
 
-Click **Open in Colab** above. Colab opens a personal copy of the notebook environment; select a GPU runtime and run the cells from top to bottom.
+## Run
 
-The notebook installs Unsloth and Gradio, loads `celestial-sora/Larp-LLM` from Hugging Face, and launches a temporary Gradio chat interface.
+[Open the new chat notebook in Google Colab](https://colab.research.google.com/github/celestial-sora/Larp-LLM/blob/feat/gemma3-chat-notebook/Larp_LLM_Colab_Kaggle_Chat.ipynb), or import `Larp_LLM_Colab_Kaggle_Chat.ipynb` into Kaggle. Enable a single NVIDIA GPU and Internet access, install dependencies, restart the kernel once, then run configuration through launch in order. A 16 GB GPU may be tight; 24 GB or more gives more headroom. Model weights are downloaded from Hugging Face and are not stored here.
 
-## Model
+The Gradio 6 UI has a responsive chat layout, collapsed advanced settings (system prompt, temperature, top-p, top-k, min-p, output limit, repetition penalty and seed), new-chat control and last-response statistics. It accepts Gradio 6 structured text history. Output appears when generation completes.
 
-Hugging Face: https://huggingface.co/celestial-sora/Larp-LLM
+Generated token count comes from actual output IDs (including emitted special tokens), not re-tokenized text. Measured tok/s is output tokens divided by synchronized `model.generate` wall time, including prefill and decoding; tokenization and UI time are excluded. First-run compilation may affect the result.
 
-Base model: `unsloth/gemma-3-12b-it-unsloth-bnb-4bit`
+`SHARE=True` creates a temporary public URL while the runtime is active. Set it to `False` for local access. Optional `HF_TOKEN` comes from environment/Colab/Kaggle secrets. The notebook never prints it.
 
-## Notes
+The original `Larp_LLM_Colab_Playground.ipynb` is retained as a legacy reference; use the new notebook for Gradio 6.
 
-- GPU runtime is required.
-- Model weights are not stored in this GitHub repository.
-- The Gradio share URL is temporary and exists only while the Colab runtime is active.
-- Gemma 3 uses multimodal-style chat content blocks, including for text-only messages.
+## Validation
+
+See [VALIDATION.md](VALIDATION.md) for executed checks and limits. CPU regression tests use real Gradio 6 and a deterministic fake model:
+
+```sh
+python -m pip install 'gradio>=6,<7' nbformat ipython pytest
+python -m pytest -q
+```
+
+GPU runtime dependencies are listed in `requirements.txt`; the notebook installs these itself. Unsloth/Torch/CUDA compatibility must be checked in the chosen Colab/Kaggle runtime.

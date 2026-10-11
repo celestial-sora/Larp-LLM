@@ -1,2 +1,5 @@
+# GPU inference environment; install in a fresh Colab/Kaggle runtime.
 unsloth
-gradio
+gradio>=6,<7
+# Adapter metadata was saved by PEFT 0.19.1.
+peft>=0.19.1
