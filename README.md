@@ -6,7 +6,7 @@ A chat-first Colab/Kaggle notebook for the [celestial-sora/Larp-LLM adapter](htt
 
 ## Run
 
-Open `Larp_LLM_Colab_Kaggle_Chat.ipynb` in Colab or import it into Kaggle. Enable a single NVIDIA GPU and Internet access, install dependencies, restart the kernel once, then run configuration through launch in order. A 16 GB GPU may be tight; 24 GB or more gives more headroom. Model weights are downloaded from Hugging Face and are not stored here.
+[Open the new chat notebook in Google Colab](https://colab.research.google.com/github/celestial-sora/Larp-LLM/blob/feat/gemma3-chat-notebook/Larp_LLM_Colab_Kaggle_Chat.ipynb), or import `Larp_LLM_Colab_Kaggle_Chat.ipynb` into Kaggle. Enable a single NVIDIA GPU and Internet access, install dependencies, restart the kernel once, then run configuration through launch in order. A 16 GB GPU may be tight; 24 GB or more gives more headroom. Model weights are downloaded from Hugging Face and are not stored here.
 
 The Gradio 6 UI has a responsive chat layout, collapsed advanced settings (system prompt, temperature, top-p, top-k, min-p, output limit, repetition penalty and seed), new-chat control and last-response statistics. It accepts Gradio 6 structured text history. Output appears when generation completes.
 
